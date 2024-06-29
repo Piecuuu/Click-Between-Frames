@@ -526,30 +526,6 @@ class $modify(PlayerObject) {
 	}
 };
 
-class $modify(EndLevelLayer) {
-	void customSetup() {
-		EndLevelLayer::customSetup();
-
-		if (!softToggle || actualDelta) {
-			std::string text;
-
-			if (softToggle && actualDelta) text = "PB";
-			else if (actualDelta) text = "CBF+PB";
-			else text = "CBF";
-
-			cocos2d::CCSize size = cocos2d::CCDirector::sharedDirector()->getWinSize();
-			CCLabelBMFont *indicator = CCLabelBMFont::create(text.c_str(), "bigFont.fnt");
-
-			indicator->setPosition({ size.width, size.height });
-			indicator->setAnchorPoint({ 1.0f, 1.0f });
-			indicator->setOpacity(90);
-			indicator->setScale(0.2f);
-
-			this->addChild(indicator);
-		}
-	}
-};
-
 Patch *patch;
 
 void toggleMod(bool disable) {
